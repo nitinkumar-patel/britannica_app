@@ -3,7 +3,6 @@ import sys
 import traceback
 
 import xml.etree.ElementTree as ET
-from flask_restful_swagger import swagger
 
 try:
     tree = ET.parse("britannica_topics.xml")
@@ -32,7 +31,6 @@ except Exception as e:
     print (err_msg)
     sys.exit(0)
 
-@swagger.model
 class TopicModel(db.Model):
     __tablename__ = 'topics'
 

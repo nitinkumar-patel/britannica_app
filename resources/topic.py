@@ -3,7 +3,6 @@ from flask_restplus import Resource #, reqparse
 from flask import jsonify
 # from flask_jwt import jwt_required
 from models.topic import TopicModel
-from flask_restful_swagger import swagger
 
 class Topic(Resource):
     '''
