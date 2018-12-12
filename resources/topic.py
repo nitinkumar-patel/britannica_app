@@ -1,8 +1,9 @@
-from flask_restplus import Resource #, reqparse
+from flask_restplus import Resource  # , reqparse
 # from flask_restful import Resource #, reqparse
 from flask import jsonify
 # from flask_jwt import jwt_required
 from models.topic import TopicModel
+
 
 class Topic(Resource):
     '''
@@ -19,7 +20,7 @@ class Topic(Resource):
                         )
     '''
     # @jwt_required()
-  
+
     def get(self, _id):
         topics = TopicModel.find_by_topicid(_id)
         ret_response = []
@@ -28,13 +29,13 @@ class Topic(Resource):
                 ret_response.append(TopicModel.get_json(topic))
         else:
             ret_response = [{
-                    "Topic_id": _id, 
-                    "error": "URL Not Found", 
-                    "cause": "topic {} not in database".format(_id)
+                "Topic_id": _id,
+                "error": "URL Not Found",
+                "cause": "topic {} not in database".format(_id)
             }]
 
         return jsonify(ret_response)
-    
+
     '''
     def post(self, _id):
         if TopicModel.find_by_topicid(_id):
@@ -87,9 +88,9 @@ class Class(Resource):
                 ret_response.append(TopicModel.get_json(topic))
         else:
             ret_response = [{
-                    "URL_class": name, 
-                    "error": "URL Not Found", 
-                    "cause": "URL_class {} not in database".format(name)
+                "URL_class": name,
+                "error": "URL Not Found",
+                "cause": "URL_class {} not in database".format(name)
             }]
 
         return jsonify({"url-publish": ret_response})
@@ -105,9 +106,9 @@ class Title(Resource):
                 ret_response.append(TopicModel.get_json(topic))
         else:
             ret_response = [{
-                    "Url_title": title, 
-                    "error": "URL Not Found", 
-                    "cause": "Url_title {} not in database".format(title)
+                "Url_title": title,
+                "error": "URL Not Found",
+                "cause": "Url_title {} not in database".format(title)
             }]
 
         return jsonify(ret_response)
@@ -117,6 +118,7 @@ class PageNotFound(Resource):
 
     def get(self, path):
         return {"err_message": "Not recognizable Path: '{}', Please, check it!".format(path)}, 404
+
 
 '''
 class TopicList(Resource):
