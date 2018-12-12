@@ -14,8 +14,8 @@ If you want to setup in your local machine, please follow below steps:
 4) Installing required lib using this commad:
     >> pip install -r requirements.txt
 
-    if you have proxy:
-        >> pip --proxy [proxy_ip:port] intall -r requirements.txt
+    If you have proxy to install modules then follow this command:
+    >> pip --proxy [proxy_ip:port] intall -r requirements.txt
 
 5) After successfully installation of the required lib(step-4). (this step is Optional for now)
     >> python run.py
