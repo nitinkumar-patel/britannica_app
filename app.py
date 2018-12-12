@@ -1,15 +1,12 @@
 import os 
-
 from flask import Flask, redirect, render_template, jsonify#, Blueprint
 # from flask_restful import Api
 from flask_restplus import Api
 from flask_jwt import JWT
-
 # from security import authenticate, identity
 # from resources.user import UserRegister
 from resources.topic import Topic, Class, Title, PageNotFound
 from db import db
-
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
